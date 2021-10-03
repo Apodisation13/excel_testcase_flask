@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>page1</title>
+</head>
+<body>
+<table border="1">
+   <caption>Таблица из экселя</caption>
+   <tr>
+    <th>номер позиции</th>
+    <th>МНН</th>
+    <th>торговое наименование</th>
+    <th>форма выпуска</th>
+    <th>кол-во</th>
+    <th>цена</th>
+    <th>затраты</th>
+   </tr>
+{% for each in context %}
+   <tr>
+       <td>{{ each.id }}</td>
+       <td>{{ each.mnn }}</td>
+       {% autoescape false %}
+       <td>{{ each.trade_name }}</td>
+       {% endautoescape %}
+       {% autoescape false %}
+       <td>{{ each.form }}</td>
+       {% endautoescape %}
+       <td>{{ each.quantity }}</td>
+       <td>{{ each.price }}</td>
+       <td>{{ each.result }}</td>
+   </tr>
+    {% endfor %}
+
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td border="5">{{ query_q }}</td>
+<td>{{ query_p }}</td>
+<td>{{ query_r }}</td>
+
+</table>
+
+</body>
+</html>

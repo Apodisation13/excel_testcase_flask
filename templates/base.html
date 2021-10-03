@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+</head>
+<body>
+
+
+<button type="button" onclick="window.location.href='{{ url_for('page_1') }}';">page_1</button>
+<button type="button" onclick="window.location.href='{{ url_for('page_2') }}';">page_2</button>
+<button type="button" onclick="window.location.href='{{ url_for('page_3') }}';">page_3</button>
+
+{#<button class="custom_button" onclick="location.href='{% url "page_2" %}'">СТР2</button>#}
+{#<button class="custom_button" onclick="location.href='{% url "page_3" %}'">СТР3</button>#}
+
+</body>
+</html>
