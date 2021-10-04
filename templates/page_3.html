@@ -5,7 +5,7 @@
     <title>page3</title>
 </head>
 <body>
-<table border="1">
+<table border="1" style="font-size:6pt">
    <caption>Таблица из access</caption>
    <tr>
     <th>N</th>
@@ -13,35 +13,30 @@
     <th>ТН</th>
     <th>ЖНВЛП</th>
    </tr>
-    <tr align="center"><td colspan="4" bgcolor="#006600" style="font-size:14pt">ЛС в перечне ЖНВЛП</td></tr>
+    <tr align="center"><td colspan="4" bgcolor="yellow">ЛС в перечне ЖНВЛП</td></tr>
 
 {% for each in db_v %}
-    {% for key, value in each.items %}
    <tr>
        <td>{{ each.id }}</td>
-       <td>{{ key }}</td>
-       <td>{{ value }}</td>
+       <td>{{ each.MNN }}</td>
+       {% autoescape false %}
+       <td>{{ each.TN }}</td>
+       {% endautoescape %}
        <td>V</td>
-   {% endfor %}
    </tr>
-    {% endfor %}
- <tr align="center"><td colspan="4" bgcolor="#006600" font_size="20">Остальные ЛС</td></tr>
+{% endfor %}
 
-    <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
- <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
- <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
-
-
-
-
-    {% for each in context %}
+    <tr align="center"><td colspan="4" bgcolor="#006600">Остальные ЛС</td></tr>
+{% for each in db_n %}
    <tr>
        <td>{{ each.id }}</td>
-
+       <td>{{ each.MNN }}</td>
+       {% autoescape false %}
+       <td>{{ each.TN }}</td>
+       {% endautoescape %}
+       <td>N</td>
    </tr>
-    {% endfor %}
-
-
+{% endfor %}
 
 </table>
 

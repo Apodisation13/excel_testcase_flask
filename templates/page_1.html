@@ -5,7 +5,17 @@
     <title>page1</title>
 </head>
 <body>
+
 <table border="1">
+    <style>
+    tr:last-child { background: yellow; font-weight: bold; }
+    {#.td-last{#}
+    {#    border-bottom: 3px solid black;#}
+    {#    border-right: 3px solid black;#}
+    {#    border-left: 3px solid black;#}
+    {#    border-top: 3px solid black;#}
+
+</style>
    <caption>Таблица из экселя</caption>
    <tr>
     <th>номер позиции</th>
@@ -32,13 +42,15 @@
    </tr>
     {% endfor %}
 
+<tr>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
-<td border="5">{{ query_q }}</td>
+<td>{{ query_q }}</td>
 <td>{{ query_p }}</td>
 <td>{{ query_r }}</td>
+</tr>
 
 </table>
 

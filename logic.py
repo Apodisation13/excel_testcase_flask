@@ -8,22 +8,22 @@ def query(model):
     query_q = session.query(sq.func.SUM(model.quantity)).all()
     query_p = session.query(sq.func.SUM(model.price)).all()
     query_r = session.query(sq.func.SUM(model.result)).all()
-    return data, query_q, query_p, query_r
+    return data, query_q[0][0], query_p[0][0], query_r[0][0]
 
 
 def aggregate_logic():
 
     def aggregate(queryset: list):
         i = 1
-        db_set = [{queryset[0][1]: queryset[0][2], 'id': i}, ]
+        db_set = [{'id': i, 'MNN': queryset[0][1], 'TN': queryset[0][2]}, ]
 
         for row in queryset[1:]:
 
-            if row[1] not in db_set[i - 1]:
-                db_set.append({row[1]: row[2], 'id': i + 1})
+            if row[1] != db_set[i - 1]['MNN']:
+                db_set.append({'id': i + 1, 'MNN': row[1], 'TN': row[2]})
                 i += 1
             else:
-                db_set[i - 1][row[1]] += '<br>' + row[2]
+                db_set[i - 1]['TN'] += '<br>' + row[2]
         return db_set
 
     conn = sqlite3.connect('data.sqlite')

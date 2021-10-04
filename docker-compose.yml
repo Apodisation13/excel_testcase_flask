@@ -1,0 +1,42 @@
+version: "3"
+
+
+services:
+  postgresdb:
+    image: excel_testcase_flask_postgres_db
+    build:
+      context: ./docker/postgres
+      dockerfile: Dockerfile
+    environment:
+      - POSTGRES_PASSWORD=1234567890
+    volumes:
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5433:5432"
+
+  backend:
+    image: excel_testcase_flask_backend
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/excel_testcase_flask  # TODO: вот эта строчка отвечает за автообновление после изменения кода?
+    depends_on:
+      - postgresdb
+    ports:
+      - "5000:5000"
+
+#  nginx:
+#    image: stocks_products_nginx
+#    build:
+#      context: ./docker/nginx
+#      dockerfile: Dockerfile
+#    ports:
+#      - "80:80"
+#    depends_on:
+#      - backend
+#      - postgresdb
+#    volumes:
+#      - ./static/:/static
+##    links:
+##      - backend
