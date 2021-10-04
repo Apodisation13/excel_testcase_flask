@@ -13,7 +13,7 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 RUN chmod +x /excel_testcase_flask/entrypoint.sh
 
 # Добавить мета-информацию к образу для открытия порта к прослушиванию.
-#EXPOSE 8000 80 81
+EXPOSE 5000
 
 # Выполнить команду внутри контейнера
 #CMD ["python", "./manage.py",  "runserver", "0.0.0.0:8000"]

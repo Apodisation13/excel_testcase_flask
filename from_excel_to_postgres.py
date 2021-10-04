@@ -83,3 +83,5 @@ sum_quantity = sum(q_list)
 sum_price = sum(price_list)
 sum_result = sum(result_list)
 print(sum_quantity, sum_price, sum_result)
+
+print('таблицы заполнены')

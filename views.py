@@ -1,6 +1,6 @@
 from flask import render_template
 
-from app import app
+from app import *
 from models import TestExcel, AggrExcel
 from logic import *
 

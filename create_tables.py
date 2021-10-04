@@ -1,8 +1,10 @@
 from sqlalchemy import MetaData
 from sqlalchemy.testing.schema import Table
+from time import sleep
 
 from db import *
 
+sleep(2)
 
 metadata_obj = MetaData()
 
@@ -29,3 +31,5 @@ AggrExcel = Table(
 )
 
 metadata_obj.create_all(engine)
+
+print('таблицы созданы')

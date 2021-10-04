@@ -1,5 +1,7 @@
 #!/bin/bash
 
+python app.py
+
 python create_tables.py --no-input
 
 python from_excel_to_postgres.py --no-input

@@ -19,6 +19,12 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+    environment: # or use env_file as you did above
+      POSTGRES_USER: james
+      POSTGRES_PASSWORD: 1234567890
+      POSTGRES_HOST: postgresdb     # This is the name of the database service in this file above
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: test_case_excel
     volumes:
       - ./:/excel_testcase_flask  # TODO: вот эта строчка отвечает за автообновление после изменения кода?
     depends_on:
